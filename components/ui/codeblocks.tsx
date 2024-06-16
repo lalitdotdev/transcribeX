@@ -23,7 +23,7 @@ export const programmingLanguages: languageMap = {
 };
 
 const CodeBlock: FC<Props> = memo(({ language, value, fileName }) => {
-    const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 });
+
 
     const downloadAsFile = () => {
         if (typeof window === "undefined") {
@@ -42,10 +42,7 @@ const CodeBlock: FC<Props> = memo(({ language, value, fileName }) => {
         URL.revokeObjectURL(url);
     };
 
-    const onCopy = () => {
-        if (isCopied) return;
-        copyToClipboard(value);
-    };
+
 
     return (
         <div className="codeblock relative w-full dark:bg-gray-800 font-sans shadow-md rounded-lg dark:text-white">
@@ -60,7 +57,7 @@ const CodeBlock: FC<Props> = memo(({ language, value, fileName }) => {
                         <span className="sr-only">Download</span>
                     </button>
                     <button onClick={onCopy}>
-                        {isCopied ? <Check height={15} /> : <Copy height={15} />}
+                        {/* {isCopied ? <Check height={15} /> : <Copy height={15} />} */}
                         <span className="sr-only">Copy Code</span>
                     </button>
                 </div>
