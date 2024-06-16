@@ -25,7 +25,22 @@ export const programmingLanguages: languageMap = {
 const CodeBlock: FC<Props> = memo(({ language, value, fileName }) => {
     const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 });
 
+    const downloadAsFile = () => {
+        if (typeof window === "undefined") {
+            return;
+        }
 
+        const blob = new Blob([value], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.download = fileName;
+        link.href = url;
+        link.style.display = "none";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    };
 
     const onCopy = () => {
         if (isCopied) return;
