@@ -4,7 +4,8 @@ import { Check, Copy, Download } from "lucide-react";
 import { FC, memo } from "react";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coldarkCold } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
+// import { Monakai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { useCopyToClipboard } from "@/lib/hooks/use-copy-to-clipboard";
 
 interface Props {
@@ -24,22 +25,7 @@ export const programmingLanguages: languageMap = {
 const CodeBlock: FC<Props> = memo(({ language, value, fileName }) => {
     const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 });
 
-    const downloadAsFile = () => {
-        if (typeof window === "undefined") {
-            return;
-        }
 
-        const blob = new Blob([value], { type: "text/plain" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.download = fileName;
-        link.href = url;
-        link.style.display = "none";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-    };
 
     const onCopy = () => {
         if (isCopied) return;
@@ -66,12 +52,13 @@ const CodeBlock: FC<Props> = memo(({ language, value, fileName }) => {
             </div>
             <SyntaxHighlighter
                 language={language}
-                style={coldarkCold}
+                style={dracula}
                 PreTag={"div"}
                 customStyle={{
                     margin: 0,
                     width: "100%",
-                    background: "transparent",
+                    // background: 'var(--code-bg)',
+                    // color: 'var(--code-color)',
                     lineHeight: "1.2",
 
 
@@ -81,7 +68,6 @@ const CodeBlock: FC<Props> = memo(({ language, value, fileName }) => {
                         lineHeight: "inherit",
                         fontSize: "0.85rem",
                         fontFamily: "var(--font-mono)",
-
 
                     },
                 }}
