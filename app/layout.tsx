@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import { Spotlight } from "@/components/ui/spotlight";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,8 +29,8 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
+                    <Toaster />
                     <Navbar />
-                    <Spotlight className="hidden md:flex md:-top-80 left-80  " fill="white" />
                     {children}
                 </ThemeProvider>
             </body>
