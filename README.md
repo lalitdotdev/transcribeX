@@ -1,12 +1,12 @@
 ---
 
-# WhisperV3 - Real-time Audio Transcription Platform
+# transcribeX - Real-time Audio Transcription Platform
 
-Welcome to WhisperV3, a platform for real-time audio transcription powered by state-of-the-art AI models and modern web technologies.
+Welcome to transcribeX, a platform for real-time audio transcription powered by state-of-the-art AI models and modern web technologies.
 
 ## Overview
 
-WhisperV3 enables users to transcribe audio files efficiently using NVIDIA's CUDA technology, Transformers, and Flash Attention v2. This platform eliminates the reliance on third-party APIs by leveraging in-house models and infrastructure, providing robust performance and data privacy.
+TranscribeX enables users to transcribe audio files efficiently using NVIDIA's CUDA technology, Transformers, and Flash Attention v2. This platform eliminates the reliance on third-party APIs by leveraging in-house models and infrastructure, providing robust performance and data privacy.
 
 ## Features
 
@@ -24,41 +24,67 @@ WhisperV3 enables users to transcribe audio files efficiently using NVIDIA's CUD
 
 ## Getting Started
 
-To run WhisperV3 locally:
+To run transcribeX locally:
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/WhisperV3.git
-   cd WhisperV3
+   git clone https://github.com/yourusername/transcribeX.git
+   cd transcribeX
    ```
 
-2. Install dependencies:
+Certainly! Here's a revised README section focused on deployment instructions for deploying the WhisperV3 project on Modal and setting up the Next.js frontend:
+
+---
+
+# WhisperV3 - Real-time Audio Transcription Platform
+
+Welcome to WhisperV3, a platform for real-time audio transcription powered by state-of-the-art AI models and modern web technologies.
+
+## Overview
+
+WhisperV3 enables users to transcribe audio files efficiently using NVIDIA's CUDA technology, Transformers, and Flash Attention v2. This platform eliminates the reliance on third-party APIs by leveraging in-house models and infrastructure, providing robust performance and data privacy.
+
+### Backend Deployment (Modal)
+
+To deploy WhisperV3 backend on Modal:
+
+1. **Create a Virtual Environment:**
 
    ```bash
-   # Backend
-   pip install -r requirements.txt
-
-   # Frontend
-   cd client
-   npm install
+   python3 -m venv whisperenv
+   source whisperenv/bin/activate
    ```
 
-3. Set up environment variables:
-
-   - Configure Modal credentials and NVIDIA GPU settings as needed.
-
-4. Start the development servers:
+2. **Install Dependencies:**
 
    ```bash
-   # Backend
-   uvicorn main:web_app --reload
-
-   # Frontend
-   npm start
+   pip3 install modal==0.62.181 fastapi==0.110.0
    ```
 
-5. Access WhisperV3 in your browser at `http://localhost:3000`.
+3. **Configure Modal Credentials:**
+
+   - Ensure your Modal credentials are set up correctly in your environment.
+   - Setup modal token from the modal dashboard and run in terminal:
+     ```bash
+     modal token set --token-id <token-id> --token-secret <token-secret>
+     ```
+
+4. **Deploy the Backend Server:**
+
+   ```bash
+   cd modal directory
+    modal deploy modal_app.py
+   ```
+
+5. **Start the Development Server:**
+
+   ```bash
+   npm or bun run dev
+   ```
+
+6. **Access TranscribeX:**
+   - The frontend will be accessible at `http://localhost:3000`.
 
 ## API Endpoints
 
@@ -77,6 +103,8 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 ## Acknowledgments
 
 Special thanks to the contributors and libraries that make WhisperV3 possible.
+
+---
 
 ## Important links and resources
 
