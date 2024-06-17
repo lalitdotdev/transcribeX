@@ -49,7 +49,7 @@ image = (
     )
 )
 
-stub = Stub("whisper-v3-demo-yt")
+stub = Stub("transcribeX")
 stub.net_file_system = NetworkFileSystem.new()
 
 
@@ -111,7 +111,7 @@ async def transcribe(request: Request):
     print("Received a request from", request.client)
     form = await request.form()
     file_content = await form["file"].read()
-    f = Function.lookup("whisper-v3-demo-yt", "WhisperV3.generate")
+    f = Function.lookup("transcribeX", "WhisperV3.generate")
     call = f.spawn(file_content)
     return call.object_id
 
@@ -119,7 +119,7 @@ async def transcribe(request: Request):
 @web_app.get("/stats")
 def stats(request: Request):
     print("Received a request from", request.client)
-    f = Function.lookup("whisper-v3-demo-yt", "WhisperV3.generate")
+    f = Function.lookup("transcribeX", "WhisperV3.generate")
     return f.get_current_stats()
 
 
