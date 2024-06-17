@@ -73,6 +73,16 @@ const Waveform = ({ file }: Props) => {
         }
     }, [track.current]);
 
+    // effect to update the current time of the track every 100ms when the track is playing
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            if (track.current && track.current.isPlaying()) {
+                setCurrentTime(track.current.getCurrentTime());
+            }
+        }, 100);
+
+        return () => clearInterval(intervalId);
+    }, []);
 
     return (
         <>
