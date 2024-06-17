@@ -64,6 +64,14 @@ const Waveform = ({ file }: Props) => {
         }
     }, [file]);
 
+    // effect to update the current time of the track when the track is interacted with
+    useEffect(() => {
+        if (track.current) {
+            track.current.on("interaction", () => {
+                setCurrentTime(track.current?.getCurrentTime() || 0);
+            });
+        }
+    }, [track.current]);
 
 
     return (
