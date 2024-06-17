@@ -18,7 +18,7 @@ export default function ShareUrl({ host, call_id }: Props) {
     };
 
     return (
-        <div className="prose flex gap-2 my-3 overflow-scroll w-full">
+        <div className="prose flex gap-2 my-10 overflow-scroll w-full">
             <pre className="p-2 bg-gray-100 text-black border-gray-300 border m-0 w-full">
                 {host}/{call_id}
             </pre>
