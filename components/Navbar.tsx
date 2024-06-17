@@ -1,4 +1,5 @@
 import { Ear } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { ThemeToggle } from "./global/mode-toggle";
 
@@ -7,12 +8,16 @@ export default function Navbar() {
         <div className="flex w-full items-center p-3 px-4 justify-between sticky top-0 backdrop-blur-sm">
             <Link
                 href={"/"}
-                className="flex items-center text-2xl font-semibold tracking-tighter"
+                className="flex items-center text-2xl font-semibold tracking-tighter justify-center gap-2"
             >
-                WhispX <Ear />
+
+                <Image src="/logo.svg" width={32} height={32} alt="WhispX logo" />
+
+                {/* Hidden on small screens and on mobile visible on large screens */}
+                <span className="hidden sm:block text-xl">WhispX </span>
             </Link>
             <div className="flex items-center gap-2">
-                <Link href={""} target="_" className="flex items-center gap-2">
+                <Link href={"https://github.com/lalitdotdev"} target="_" className="flex items-center gap-2">
                     <div className="text-sm w-fit px-2.5 rounded-xl border-gray-300 bg-gray-100 border text-gray-600 hover:shadow-lg transition-shadow flex items-center group">
                         Get the code{" "}
                     </div>
