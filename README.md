@@ -33,19 +33,8 @@ To run transcribeX locally:
    cd transcribeX
    ```
 
-Certainly! Here's a revised README section focused on deployment instructions for deploying the WhisperV3 project on Modal and setting up the Next.js frontend:
 
----
 
-# WhisperV3 - Real-time Audio Transcription Platform
-
-Welcome to WhisperV3, a platform for real-time audio transcription powered by state-of-the-art AI models and modern web technologies.
-
-## Overview
-
-WhisperV3 enables users to transcribe audio files efficiently using NVIDIA's CUDA technology, Transformers, and Flash Attention v2. This platform eliminates the reliance on third-party APIs by leveraging in-house models and infrastructure, providing robust performance and data privacy.
-
-### Backend Deployment (Modal)
 
 To deploy WhisperV3 backend on Modal:
 
