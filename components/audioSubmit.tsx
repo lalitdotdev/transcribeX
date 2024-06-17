@@ -24,6 +24,11 @@ export default function AudioSubmit({ setFile, file }: Props) {
     const [open, setOpen] = useState(false);
     const [call_id, setCall_id] = useState("");
 
+    async function submitAudio() {
+        const formData = new FormData();
+        formData.append("file", file);
+
+    }
 
     return (
         <>
