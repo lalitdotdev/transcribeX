@@ -106,3 +106,36 @@ class WhisperV3:
         return output, elapsed
 
 
+@web_app.post("/transcribe")
+async def transcribe(request: Request):
+    print("Received a request from", request.client)
+    form = await request.form()
+    file_content = await form["file"].read()
+    f = Function.lookup("whisper-v3-demo-yt", "WhisperV3.generate")
+    call = f.spawn(file_content)
+    return call.object_id
+
+
+@web_app.get("/stats")
+def stats(request: Request):
+    print("Received a request from", request.client)
+    f = Function.lookup("whisper-v3-demo-yt", "WhisperV3.generate")
+    return f.get_current_stats()
+
+
+@web_app.post("/call_id")
+async def get_completion(request: Request):
+    form = await request.form()
+    call_id = form["call_id"]
+    f = functions.FunctionCall.from_id(call_id)
+    try:
+        result = f.get(timeout=0)
+    except TimeoutError:
+        return responses.JSONResponse(content="", status_code=202)
+    return result
+
+
+@stub.function(allow_concurrent_inputs=4)
+@asgi_app()
+def entrypoint():
+    return web_app
