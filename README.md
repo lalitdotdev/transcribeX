@@ -2,6 +2,9 @@
 
 # transcribeX - Real-time Audio Transcription Platform
 
+![transcribeX](https://socialify.git.ci/lalitdotdev/transcribeX/image?description=1&font=Jost&language=1&logo=https%3A%2F%2Fpouch.jumpshare.com%2Fpreview%2FopI2xmAzfHSvgrpg7dMM2hUHahxViSY-a_44Vno03jgo1fz68Cke4XyUiTfbRzuVMEpYAXlJJLHDiZzJx6WeaiNaRzgjV6rq2E-q-IlH64I&name=1&owner=1&stargazers=1&theme=Light)
+
+
 Welcome to transcribeX, a platform for real-time audio transcription powered by state-of-the-art AI models and modern web technologies.
 
 ## Overview
