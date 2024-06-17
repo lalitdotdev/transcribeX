@@ -29,3 +29,23 @@ def download_model():
 
     snapshot_download("openai/whisper-large-v3", local_dir=MODEL_DIR)
 
+
+image = (
+    Image.from_registry("nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04", add_python="3.9")
+    .apt_install("git", "ffmpeg")
+    .pip_install(
+        "transformers",
+        "ninja",
+        "packaging",
+        "wheel",
+        "torch",
+        "hf-transfer~=0.1",
+        "ffmpeg-python",
+    )
+    .run_commands("python -m pip install flash-attn --no-build-isolation", gpu="A10G")
+    .env({"HF_HUB_ENABLE_HF_TRANSFER": "1"})
+    .run_function(
+        download_model,
+    )
+)
+
