@@ -49,3 +49,60 @@ image = (
     )
 )
 
+stub = Stub("whisper-v3-demo-yt")
+stub.net_file_system = NetworkFileSystem.new()
+
+
+@stub.cls(
+    image=image,
+    gpu="A10G",
+    allow_concurrent_inputs=80,
+    container_idle_timeout=40,
+    network_file_systems={"/audio_files": stub.net_file_system},
+)
+
+
+class WhisperV3:
+    def __enter__(self):
+        import torch
+        from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
+
+        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        self.torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
+        model = AutoModelForSpeechSeq2Seq.from_pretrained(
+            MODEL_DIR,
+            torch_dtype=self.torch_dtype,
+            use_safetensors=True,
+            use_flash_attention_2=True,
+        )
+        processor = AutoProcessor.from_pretrained(MODEL_DIR)
+        model.to(self.device)
+        self.pipe = pipeline(
+            "automatic-speech-recognition",
+            model=model,
+            tokenizer=processor.tokenizer,
+            feature_extractor=processor.feature_extractor,
+            max_new_tokens=128,
+            chunk_length_s=30,
+            batch_size=24,
+            return_timestamps=True,
+            torch_dtype=self.torch_dtype,
+            model_kwargs={"use_flash_attention_2": True},
+            device=0,
+        )
+
+    @method()
+    def generate(self, audio: bytes):
+        import time
+
+        fp = tempfile.NamedTemporaryFile(delete=False, suffix=".mp3")
+        fp.write(audio)
+        fp.close()
+        start = time.time()
+        output = self.pipe(
+            fp.name, chunk_length_s=30, batch_size=24, return_timestamps=True
+        )
+        elapsed = time.time() - start
+        return output, elapsed
+
+
