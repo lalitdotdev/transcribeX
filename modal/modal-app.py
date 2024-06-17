@@ -23,3 +23,9 @@ web_app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+def download_model():
+    from huggingface_hub import snapshot_download
+
+    snapshot_download("openai/whisper-large-v3", local_dir=MODEL_DIR)
+
