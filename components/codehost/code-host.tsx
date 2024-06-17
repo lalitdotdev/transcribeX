@@ -76,7 +76,7 @@ export default function CodeHost() {
                     )
                 )
 
-                stub = Stub("whisper-v3-demo", image=image)
+                stub = Stub("transcribe-x", image=image)
                 stub.net_file_system = NetworkFileSystem.new()
 
                 @stub.cls(
@@ -159,7 +159,7 @@ export default function CodeHost() {
                         <pre className="bg-gray-100 text-black border-gray-300 border-2">
                             <code>
                                 <span className="select-none pr-3">$</span>
-                                {`curl -X POST -F "audio=@<file>" https://<org_name>--whisper-v3-demo-entrypoint.modal.run`}
+                                {`curl -X POST -F "audio=@<file>" https://<org_name>--transcribe-x-entrypoint.modal.run`}
                             </code>
                         </pre>
                     </div>
