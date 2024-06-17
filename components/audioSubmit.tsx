@@ -27,7 +27,24 @@ export default function AudioSubmit({ setFile, file }: Props) {
     async function submitAudio() {
         const formData = new FormData();
         formData.append("file", file);
+        const promise = () =>
+            fetch(
+                `https://lalitdotdev--transcribe-x-entrypoint.modal.run/transcribe`,
+                {
+                    method: "POST",
+                    body: formData,
+                }
+            ).then((response) => response.json());
 
+        toast.promise(promise, {
+            loading: "Sending your file to the server",
+            success: (data) => {
+                setOpen(true);
+                setCall_id(data);
+                return "Received call id: " + data;
+            },
+            error: "Failed to send file",
+        });
     }
 
     return (
