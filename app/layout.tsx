@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
+import { Spotlight } from "@/components/ui/spotlight";
 import { ThemeProvider } from "@/providers/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,6 +29,7 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <Navbar />
+                    <Spotlight className="hidden md:flex md:-top-80 left-80  " fill="white" />
                     {children}
                 </ThemeProvider>
             </body>
