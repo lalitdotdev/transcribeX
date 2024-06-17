@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+---
+
+# WhisperV3 - Real-time Audio Transcription Platform
+
+Welcome to WhisperV3, a platform for real-time audio transcription powered by state-of-the-art AI models and modern web technologies.
+
+## Overview
+
+WhisperV3 enables users to transcribe audio files efficiently using NVIDIA's CUDA technology, Transformers, and Flash Attention v2. This platform eliminates the reliance on third-party APIs by leveraging in-house models and infrastructure, providing robust performance and data privacy.
+
+## Features
+
+- **Real-time Transcription**: Transcribe audio files instantly with high accuracy.
+- **Customizable AI Models**: Utilize NVIDIA CUDA and advanced Transformer models.
+- **Web Interface**: User-friendly web interface for uploading and managing audio files.
+- **Data Privacy**: Host and process data securely without relying on external services.
+
+## Technologies Used
+
+- **Backend**: Python, FastAPI, Modal framework
+- **Frontend**: React, Tailwind CSS
+- **AI Models**: Hugging Face Transformers, Flash Attention v2
+- **Infrastructure**: NVIDIA CUDA, Docker
 
 ## Getting Started
 
-First, run the development server:
+To run WhisperV3 locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   git clone https://github.com/yourusername/WhisperV3.git
+   cd WhisperV3
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   # Backend
+   pip install -r requirements.txt
 
-## Learn More
+   # Frontend
+   cd client
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Set up environment variables:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - Configure Modal credentials and NVIDIA GPU settings as needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. Start the development servers:
 
-## Deploy on Vercel
+   ```bash
+   # Backend
+   uvicorn main:web_app --reload
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   # Frontend
+   npm start
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Access WhisperV3 in your browser at `http://localhost:3000`.
+
+## API Endpoints
+
+- **POST /transcribe**: Upload an audio file for transcription.
+- **GET /stats**: View real-time statistics on transcription operations.
+- **POST /call_id**: Retrieve the status of a transcription task using its call ID.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit pull requests for any enhancements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+## Acknowledgments
+
+Special thanks to the contributors and libraries that make WhisperV3 possible.
+
+## Important links and resources
+
+https://modal.com/docs/examples/hello_world
+https://github.com/katspaugh/wavesurfer.js
