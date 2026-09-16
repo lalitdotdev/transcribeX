@@ -1,75 +1,175 @@
-import { ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
+"use client";
+
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
-    const links = [
-        {
-            id: 3,
-            href: 'https://forms.gle',
-            label: 'Submit feedback',
-        },
-        {
-            id: 4,
-            href: 'https://ko-fi.com',
-            label: 'Support this project',
-        },
-        {
-            id: 5,
-            href: '/legal',
-            label: 'Legal',
-        },
-    ];
+  return (
+    <footer className="w-full bg-slate-900 dark:bg-slate-950 text-slate-300 border-t border-slate-800 relative overflow-hidden font-sans">
+      {/* Background glow overlay */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-48 bg-purple-500/5 blur-[120px] pointer-events-none"></div>
 
-    return (
-        <footer className="w-full px-6 sm:px-[5%]   ">
-            <div className="pb-16">
-                <span className="sr-only">UNVIEL</span>
-            </div>
-            <div className="flex flex-col gap-y-12 gap-x-2 md:flex-row items-start justify-between pt-10 pb-10">
-                <div className="gap-y-4 b-8 flex flex-col text-sm">
-                    <div className="flex w-56 gap-x-1 xl:w-96">
-                        <span className="w-fit flex-nowrap whitespace-nowrap">Developed & Curated by </span>
-                        <Link
-                            className="font-bold relative overflow-y-hidden w-full group h-fit"
-                            target="_blank"
-                            href="https://litsharmadev.tech/"
-                        >
-                            <span className="flex group-hover:-translate-y-5 group-hover:opacity-0 transition-all ease-in-out-circ duration-500">
-                                Lalit
-                            </span>
-                            <span className="absolute inset-0 group-hover:translate-y-0 translate-y-5 xl:translate-y-8 transition-all ease-in-out-circ duration-500 underline flex-nowrap whitespace-nowrap">
-                                Lalit Sharma :)
-                            </span>
-                        </Link>
-                    </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-800">
+          {/* Brand Col */}
+          <div className="md:col-span-5 space-y-4">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 p-0.5">
+                <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                  <Image
+                    src="/logo.svg"
+                    width={20}
+                    height={20}
+                    alt="TranscribeX Logo"
+                  />
                 </div>
-                <ul className="grid-cols-1 text-sm sm:grid-cols-2 lg:grid-cols-3 grid xl:grid-cols-3 gap-x-8 gap-y-3">
-                    {links.map((link) => (
-                        <li key={link.id} className="flex w-fit group text-sm xl:text-h7 2xl:text-h6">
-                            <Link
-                                className="group"
-                                href={link.href}
-                                target={link.id === 2 || link.id === 4 ? "_blank" : "_self"}
-                                rel={link.id === 2 || link.id === 4 ? "noopener noreferrer" : ""}
-                            >
-                                {link.label}
-                            </Link>
-                            <span className="relative overflow-hidden h-fit w-fit">
-                                <ArrowUpRight
-                                    className="group-hover:-translate-y-5 group-hover:translate-x-5 duration-500 transition-transform ease-in-out-circ fill-light-gray"
-                                    color="gray"
-                                    size={16}
-                                />
-                                <ArrowUpRight
-                                    className="absolute top-0 group-hover:translate-x-0 duration-500 group-hover:translate-y-0 transition-all ease-in-out-circ translate-y-5 -translate-x-5 fill-light-gray"
-                                    color="gray"
-                                    size={16}
-                                />
-                            </span>
-                        </li>
-                    ))}
-                </ul>
+              </div>
+              <span className="font-extrabold text-xl tracking-tight text-white">
+                Whisp<span className="text-purple-400">X</span>
+              </span>
+            </Link>
+
+            <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
+              Enterprise-grade speech-to-text platform powered by OpenAI Whisper
+              large-v3 & Flash Attention 2. Built for ultra-low latency, zero
+              data retention, and 100% self-hosting.
+            </p>
+
+            {/* System Status Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-800/80">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              All GPU Systems Operational (99.99%)
             </div>
-        </footer>
-    );
+          </div>
+
+          {/* Nav Col 1 */}
+          <div className="md:col-span-2 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
+              Product
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link
+                  href="#features"
+                  className="hover:text-purple-400 transition-colors"
+                >
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tryit"
+                  className="hover:text-purple-400 transition-colors"
+                >
+                  Playground
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#benchmarks"
+                  className="hover:text-purple-400 transition-colors"
+                >
+                  Benchmarks
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#pricing"
+                  className="hover:text-purple-400 transition-colors"
+                >
+                  Pricing
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Nav Col 2 */}
+          <div className="md:col-span-2 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
+              Developers
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link
+                  href="#host"
+                  className="hover:text-purple-400 transition-colors"
+                >
+                  Modal Deployment
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/lalitdotdev"
+                  target="_blank"
+                  className="hover:text-purple-400 transition-colors"
+                >
+                  GitHub Repository
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://huggingface.co/openai/whisper-large-v3"
+                  target="_blank"
+                  className="hover:text-purple-400 transition-colors"
+                >
+                  Whisper-v3 Weights
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Nav Col 3 */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
+              Community & Support
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link
+                  href="https://forms.gle"
+                  target="_blank"
+                  className="hover:text-purple-400 transition-colors inline-flex items-center gap-1"
+                >
+                  <span>Submit Feedback</span>{" "}
+                  <ArrowUpRight className="w-3 h-3 text-slate-500" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://ko-fi.com"
+                  target="_blank"
+                  className="hover:text-purple-400 transition-colors inline-flex items-center gap-1"
+                >
+                  <span>Support Project</span>{" "}
+                  <ArrowUpRight className="w-3 h-3 text-slate-500" />
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div className="flex items-center gap-1.5">
+            <span>Crafted & Maintained by</span>
+            <Link
+              href="https:///"
+              target="_blank"
+              className="font-bold text-slate-300 hover:text-purple-400 transition-colors underline"
+            >
+              Lalit Sharma
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <span>
+              © {new Date().getFullYear()} TranscribeX. Open Source software
+              under MIT License.
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

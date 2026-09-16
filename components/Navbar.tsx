@@ -1,39 +1,116 @@
-import { Ear } from "lucide-react";
+"use client";
+
+import { ArrowRight, Github, Sparkles, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ThemeToggle } from "./global/mode-toggle";
 
 export default function Navbar() {
-    return (
-        <div className="flex w-full items-center p-3 px-4 justify-between sticky top-0 backdrop-blur-sm">
-            <Link
-                href={"/"}
-                className="flex items-center text-2xl font-semibold tracking-tighter justify-center gap-2"
-            >
+  const [scrolled, setScrolled] = useState(false);
 
-                <Image src="/logo.svg" width={32} height={32} alt="WhispX logo" />
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-                {/* Hidden on small screens and on mobile visible on large screens */}
-                <span className="hidden sm:block text-xl">WhispX </span>
-            </Link>
-            <div className="flex items-center gap-2">
-                <Link href={"https://github.com/lalitdotdev"} target="_" className="flex items-center gap-2">
-                    <div className="text-sm w-fit px-2.5 rounded-xl border-gray-300 bg-gray-100 border text-gray-600 hover:shadow-lg transition-shadow flex items-center group">
-                        Get the code{" "}
-                    </div>
-                    <svg viewBox="0 0 128 128" height={24}>
-                        <g fill="#181616">
-                            <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"
-                            ></path>
-                            <path d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
-                        </g>
-                    </svg>
-                </Link>
-                <ThemeToggle />
+  return (
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/80 shadow-sm"
+          : "bg-white/40 dark:bg-slate-950/40 backdrop-blur-md border-b border-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 p-0.5 shadow-md shadow-purple-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-full h-full bg-white dark:bg-slate-950 rounded-[10px] flex items-center justify-center">
+              <Image
+                src="/logo.svg"
+                width={22}
+                height={22}
+                alt="TranscribeX Logo"
+                className="w-5 h-5 dark:invert-0"
+              />
             </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-extrabold text-xl tracking-tight text-slate-900 dark:text-white">
+              Whisp<span className="gradient-text-purple">X</span>
+            </span>
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-purple-100 text-purple-700 dark:bg-purple-950/80 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
+              <Zap className="w-2.5 h-2.5 mr-1 fill-current" /> v3.0
+            </span>
+          </div>
+        </Link>
+
+        {/* Center Nav Links */}
+        <nav className="hidden md:flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <Link
+            href="#features"
+            className="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors"
+          >
+            Features
+          </Link>
+          <Link
+            href="/tryit"
+            className="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors flex items-center gap-1.5"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-purple-500" />
+            Playground
+          </Link>
+          <Link
+            href="#host"
+            className="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors"
+          >
+            Deploy
+          </Link>
+          <Link
+            href="#benchmarks"
+            className="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors"
+          >
+            Benchmarks
+          </Link>
+          <Link
+            href="#pricing"
+            className="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors"
+          >
+            Pricing
+          </Link>
+        </nav>
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-3">
+          {/* GitHub Star Button */}
+          <Link
+            href="https://github.com/lalitdotdev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 transition-all hover:shadow-sm"
+          >
+            <Github className="w-4 h-4 text-slate-800 dark:text-slate-200" />
+            <span>GitHub</span>
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          </Link>
+
+          {/* Theme Switcher */}
+          <ThemeToggle />
+
+          {/* CTA Button */}
+          <Link
+            href="/tryit"
+            className="relative inline-flex items-center justify-center px-4 py-2 text-xs sm:text-sm font-semibold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 hover:from-purple-500 hover:via-indigo-500 hover:to-cyan-500 shadow-md shadow-purple-500/20 hover:shadow-lg hover:shadow-purple-500/30 hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <span>Try Playground</span>
+            <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-0.5" />
+          </Link>
         </div>
-    );
+      </div>
+    </header>
+  );
 }

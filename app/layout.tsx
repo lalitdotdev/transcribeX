@@ -1,39 +1,35 @@
 import "./globals.css";
 
-import { Inter } from "next/font/google";
-import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
-import { Spotlight } from "@/components/ui/spotlight";
 import { ThemeProvider } from "@/providers/theme-provider";
+import type { Metadata } from "next";
 import { Toaster } from "sonner";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-    title: "WhispX - Transcribe audio in minutes",
-    description: "Transcribe audio in minutes with WhisperV3 and Flash Attention v2 + Transformers without relying on third-party providers and APIs. Host it yourself or try it out.",
+  title: "TranscribeX - Enterprise AI Speech Intelligence Platform",
+  description:
+    "Transcribe audio in minutes with OpenAI Whisper large-v3 and Flash Attention v2. Host serverless GPU workers on Modal or deploy on-premise with zero data retention.",
 };
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en">
-
-            <body className={inter.className}>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="dark"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    <Toaster />
-                    <Navbar />
-                    {children}
-                </ThemeProvider>
-            </body>
-        </html >
-    );
+  return (
+    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+      <body className="font-sans antialiased bg-background text-foreground">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Toaster />
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }
