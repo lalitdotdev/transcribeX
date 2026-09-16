@@ -7,9 +7,9 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: '1.5rem',
       screens: {
-        '2xl': '1400px',
+        '2xl': '1320px',
       },
     },
     extend: {
@@ -72,11 +72,21 @@ const config = {
             transform: 'translate(-50%,-40%) scale(1)',
           },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        wave: {
+          '0%, 100%': { height: '20%' },
+          '50%': { height: '100%' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         spotlight: 'spotlight 2s ease .75s 1 forwards',
+        marquee: 'marquee 25s linear infinite',
+        wave: 'wave 1.2s ease-in-out infinite',
       },
     },
   },
