@@ -29,6 +29,7 @@ export default function DataViewer({ data }: Props) {
                 >
                     {data[0].text}
                 </TabsContent>
+                {/* getting the chunks from the data */}
                 <TabsContent
                     className="bg-gray-100 px-5 py-3 rounded-lg border-gray-300 border text-gray-600 font-mono h-fit max-h[90%] overflow-scroll"
                     value="timestamps"
@@ -42,6 +43,7 @@ export default function DataViewer({ data }: Props) {
                         </div>
                     ))}
                 </TabsContent>
+                {/* getting the json from the data */}
                 <TabsContent
                     className="bg-gray-100 px-5 py-3 rounded-lg border-gray-300 border text-gray-600 font-mono h-fit max-h[90%] overflow-scroll"
                     value="json"
