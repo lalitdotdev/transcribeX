@@ -109,7 +109,7 @@ export default function HeroDemoPreview() {
           <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
           <span className="ml-2 text-xs font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
             <Radio className="w-3.5 h-3.5 text-emerald-500 animate-pulse" />
-            TranscribeX Interactive Demo Player
+            Voxly Interactive Demo Player
           </span>
         </div>
 

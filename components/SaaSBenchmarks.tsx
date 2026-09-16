@@ -28,7 +28,7 @@ export default function SaaSBenchmarks() {
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
               By combining PyTorch 2.0 SDPA, Flash Attention v2 CUDA kernels,
-              and PyTorch FP16 quantization, TranscribeX destroys traditional
+              and PyTorch FP16 quantization, Voxly destroys traditional
               speech recognition overhead.
             </p>
 
@@ -89,11 +89,11 @@ export default function SaaSBenchmarks() {
 
             {/* Bars */}
             <div className="space-y-6">
-              {/* TranscribeX */}
+              {/* Voxly */}
               <div>
                 <div className="flex justify-between items-center text-xs font-bold mb-2">
                   <span className="text-purple-600 dark:text-purple-400 flex items-center gap-1.5">
-                    <Flame className="w-4 h-4 fill-current" /> TranscribeX
+                    <Flame className="w-4 h-4 fill-current" /> Voxly
                     (WhisperV3 + FlashAttn 2)
                   </span>
                   <span className="text-slate-900 dark:text-white font-mono">

@@ -21,12 +21,12 @@ export default function Footer() {
                     src="/logo.svg"
                     width={20}
                     height={20}
-                    alt="TranscribeX Logo"
+                    alt="Voxly Logo"
                   />
                 </div>
               </div>
               <span className="font-extrabold text-xl tracking-tight text-white">
-                Whisp<span className="text-purple-400">X</span>
+                Voxly
               </span>
             </Link>
 
@@ -164,7 +164,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-6">
             <span>
-              © {new Date().getFullYear()} TranscribeX. Open Source software
+              © {new Date().getFullYear()} Voxly. Open Source software
               under MIT License.
             </span>
           </div>

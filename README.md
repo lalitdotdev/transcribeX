@@ -1,7 +1,7 @@
-# transcribeX — Enterprise Speech Intelligence at 5x Real-Time Speed
+# Voxly — Enterprise Speech Intelligence at 5x Real-Time Speed
 
 <p align="center">
-  <img src="https://socialify.git.ci/lalitdotdev/transcribeX/image?description=1&font=Jost&language=1&logo=https%3A%2F%2Fpouch.jumpshare.com%2Fpreview%2FopI2xmAzfHSvgrpg7dMM2hUHahxViSY-a_44Vno03jgo1fz68Cke4XyUiTfbRzuVMEpYAXlJJLHDiZzJx6WeaiNaRzgjV6rq2E-q-IlH64I&name=1&owner=1&stargazers=1&theme=Dark" alt="transcribeX Banner" width="100%" />
+  <img src="https://socialify.git.ci/lalitdotdev/Voxly/image?description=1&font=Jost&language=1&logo=https%3A%2F%2Fpouch.jumpshare.com%2Fpreview%2FopI2xmAzfHSvgrpg7dMM2hUHahxViSY-a_44Vno03jgo1fz68Cke4XyUiTfbRzuVMEpYAXlJJLHDiZzJx6WeaiNaRzgjV6rq2E-q-IlH64I&name=1&owner=1&stargazers=1&theme=Dark" alt="Voxly Banner" width="100%" />
 </p>
 
 <p align="center">
@@ -15,9 +15,9 @@
 
 ---
 
-**transcribeX** is an ultra-fast, serverless, enterprise-grade audio transcription platform. It combines a beautiful, responsive Next.js 14 web client with a high-performance, auto-scaling backend deployed on **Modal.com** using NVIDIA A10G GPUs, **OpenAI's Whisper Large V3**, and **Flash Attention v2** optimization.
+**Voxly** is an ultra-fast, serverless, enterprise-grade audio transcription platform. It combines a beautiful, responsive Next.js 14 web client with a high-performance, auto-scaling backend deployed on **Modal.com** using NVIDIA A10G GPUs, **OpenAI's Whisper Large V3**, and **Flash Attention v2** optimization.
 
-By deploying the inference engine onto on-demand serverless GPU containers, **transcribeX** delivers sub-second cold starts, 5x real-time transcription speeds, and zero idle container costs—freeing you from the high fees and data-privacy constraints of third-party APIs.
+By deploying the inference engine onto on-demand serverless GPU containers, **Voxly** delivers sub-second cold starts, 5x real-time transcription speeds, and zero idle container costs—freeing you from the high fees and data-privacy constraints of third-party APIs.
 
 ---
 
@@ -34,7 +34,7 @@ By deploying the inference engine onto on-demand serverless GPU containers, **tr
 
 ## 📐 System Architecture & Data Flow
 
-**transcribeX** is structured around a highly secure, serverless proxy architecture.
+**Voxly** is structured around a highly secure, serverless proxy architecture.
 
 ### 1. Secure Async Transcription Pipeline (Sequence Diagram)
 
@@ -205,8 +205,8 @@ Ensure you have the following prerequisites installed locally:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/yourusername/transcribeX.git
-   cd transcribeX
+   git clone https://github.com/yourusername/Voxly.git
+   cd Voxly
    ```
 
 2. **Initialize a Virtual Environment**:
@@ -370,7 +370,7 @@ These internal endpoints are exposed by the ASGI FastAPI app running on the serv
 +------------------+                   +------------------+                   +------------------+
 ```
 
-By utilizing server-side proxy handlers (`app/api/transcribe` and `app/api/call-id`), **transcribeX** isolates credentials:
+By utilizing server-side proxy handlers (`app/api/transcribe` and `app/api/call-id`), **Voxly** isolates credentials:
 
 1. **API Key Protection**: The sensitive `MODAL_API_KEY` is saved solely as a production environment variable. It never gets compiled into frontend client bundles or visible in browser request headers.
 2. **Origin Concealment**: Client requests are bound to relative host paths `/api/transcribe`, completely concealing the backend deployment endpoint URL `https://*.modal.run` from code inspection.
@@ -380,7 +380,7 @@ By utilizing server-side proxy handlers (`app/api/transcribe` and `app/api/call-
 
 ## 🤝 Contributing
 
-We welcome contributions to TranscribeX! To propose features, bug fixes, or performance enhancements:
+We welcome contributions to Voxly! To propose features, bug fixes, or performance enhancements:
 
 1. Fork this repository.
 2. Create a branch for your feature: `git checkout -b feature/amazing-feature`.

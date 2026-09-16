@@ -15,7 +15,7 @@ export default function SaaSFeatures() {
       icon: <Zap className="w-6 h-6 text-purple-500" />,
       title: "Flash Attention v2 Engine",
       description:
-        "Powered by OpenAI Whisper large-v3 with native Flash Attention 2 CUDA kernels. Transcribe an hour of audio in under 12 seconds.",
+        "Powered by OpenAI Whisper large-v3 with native Flash Attention 2 CUDA kernels. Voxly an hour of audio in under 12 seconds.",
       badge: "5x Speedup",
       gradient: "from-purple-500/10 via-indigo-500/5 to-transparent",
       borderColor: "hover:border-purple-500/40",
@@ -81,7 +81,7 @@ export default function SaaSFeatures() {
             <span className="gradient-text-purple">Speech Intelligence</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg">
-            Stop paying per-minute markup fees to black-box APIs. TranscribeX
+            Stop paying per-minute markup fees to black-box APIs. Voxly
             gives you raw GPU speed, full privacy control, and sub-second
             transcription.
           </p>

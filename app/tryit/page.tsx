@@ -46,7 +46,7 @@ export default function TryIt() {
         {/* Page Title */}
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
-            <Sparkles className="w-3.5 h-3.5" /> TranscribeX Interactive
+            <Sparkles className="w-3.5 h-3.5" /> Voxly Interactive
             Playground
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">

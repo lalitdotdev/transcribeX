@@ -6,9 +6,9 @@ import type { Metadata } from "next";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  title: "TranscribeX - Enterprise AI Speech Intelligence Platform",
+  title: "Voxly - Enterprise AI Speech Intelligence Platform",
   description:
-    "Transcribe audio in minutes with OpenAI Whisper large-v3 and Flash Attention v2. Host serverless GPU workers on Modal or deploy on-premise with zero data retention.",
+    "Voxly transcribes audio in minutes with OpenAI Whisper large-v3 and Flash Attention v2. Host serverless GPU workers on Modal or deploy on-premise with zero data retention.",
 };
 
 export default function RootLayout({

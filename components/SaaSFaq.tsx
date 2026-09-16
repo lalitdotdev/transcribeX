@@ -8,24 +8,24 @@ export default function SaaSFaq() {
 
   const faqs = [
     {
-      q: "What makes TranscribeX faster than standard Whisper implementations?",
-      a: "TranscribeX uses PyTorch 2.0 scaled dot-product attention and Flash Attention v2 CUDA kernels specifically compiled for Ampere and Ada Lovelace GPUs (A10G, A100, RTX 3090/4090). This reduces memory bandwidth bottlenecks by up to 5x while maintaining 100% transcript precision.",
+      q: "What makes Voxly faster than standard Whisper implementations?",
+      a: "Voxly uses PyTorch 2.0 scaled dot-product attention and Flash Attention v2 CUDA kernels specifically compiled for Ampere and Ada Lovelace GPUs (A10G, A100, RTX 3090/4090). This reduces memory bandwidth bottlenecks by up to 5x while maintaining 100% transcript precision.",
     },
     {
-      q: "Can I host TranscribeX on my own local NVIDIA GPU or Modal serverless?",
-      a: "Yes! TranscribeX is 100% open source. You can run it locally with pipx or deploy it to Modal serverless GPUs using our provided 1-click Python script. It automatically downloads model weights and boots up containerized workers.",
+      q: "Can I host Voxly on my own local NVIDIA GPU or Modal serverless?",
+      a: "Yes! Voxly is 100% open source. You can run it locally with pipx or deploy it to Modal serverless GPUs using our provided 1-click Python script. It automatically downloads model weights and boots up containerized workers.",
     },
     {
-      q: "Does TranscribeX support multi-speaker diarization?",
-      a: "Yes. TranscribeX includes speaker segmentation and alignment models. It identifies distinct speakers in the audio track, outputting speaker labels along with millisecond timestamps.",
+      q: "Does Voxly support multi-speaker diarization?",
+      a: "Yes. Voxly includes speaker segmentation and alignment models. It identifies distinct speakers in the audio track, outputting speaker labels along with millisecond timestamps.",
     },
     {
       q: "What audio formats and file sizes are supported?",
-      a: "TranscribeX supports all common audio and video formats including MP3, WAV, M4A, FLAC, AAC, OGG, MP4, and WEBM. Files are chunked into 30-second sliding windows for zero memory leaks.",
+      a: "Voxly supports all common audio and video formats including MP3, WAV, M4A, FLAC, AAC, OGG, MP4, and WEBM. Files are chunked into 30-second sliding windows for zero memory leaks.",
     },
     {
       q: "Is my audio data private when using self-hosted Modal deployment?",
-      a: "Yes. When you host TranscribeX on Modal or your own Docker container, audio files are processed directly on your designated GPU container and destroyed immediately after transcription completes. Zero data is stored or logged.",
+      a: "Yes. When you host Voxly on Modal or your own Docker container, audio files are processed directly on your designated GPU container and destroyed immediately after transcription completes. Zero data is stored or logged.",
     },
   ];
 

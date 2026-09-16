@@ -34,14 +34,14 @@ export default function Navbar() {
                 src="/logo.svg"
                 width={22}
                 height={22}
-                alt="TranscribeX Logo"
+                alt="Voxly Logo"
                 className="w-5 h-5 dark:invert-0"
               />
             </div>
           </div>
           <div className="flex items-center gap-2">
             <span className="font-extrabold text-xl tracking-tight text-slate-900 dark:text-white">
-              Whisp<span className="gradient-text-purple">X</span>
+              Vox<span className="gradient-text-purple">ly</span>
             </span>
             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-purple-100 text-purple-700 dark:bg-purple-950/80 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
               <Zap className="w-2.5 h-2.5 mr-1 fill-current" /> v3.0
