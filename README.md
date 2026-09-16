@@ -85,26 +85,26 @@ The diagram below details the modular layers, dependencies, and environment isol
 
 ```mermaid
 graph TD
-    subgraph Client [Presentation Layer (Client-Side Browser)]
+    subgraph Client "Presentation Layer (Client-Side Browser)"
         UI[React 18 / Next.js SPA]
         Wave[Wavesurfer.js Waveform]
         Toast[Sonner Toast Notifications]
         Tabs[DataViewer Tabs: Text, Timestamps, JSON]
     end
 
-    subgraph Proxy [Proxy Security Layer (Next.js Server)]
+    subgraph Proxy "Proxy Security Layer (Next.js Server)"
         TransProxy[POST /api/transcribe]
         PollProxy[POST /api/call-id]
         Env[Environment Variables: MODAL_API_KEY, MODAL_TRANSCRIBE_URL]
     end
 
-    subgraph ModalInfra [Serverless Cloud Gateway (Modal)]
+    subgraph ModalInfra "Serverless Cloud Gateway (Modal)"
         FastAPI[FastAPI Web App (ASGI)]
         FS[(Modal Network File System)]
         Secret[Modal Secret: transcribe-api-key]
     end
 
-    subgraph GPUWorker [Machine Learning Engine (Modal GPU Container)]
+    subgraph GPUWorker "Machine Learning Engine (Modal GPU Container)"
         WhisperCls[Modal Cls: WhisperV3]
         CUDA[NVIDIA CUDA 12.1.0]
         Torch[PyTorch 2.5.1 + GPU]
